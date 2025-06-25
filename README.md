@@ -6,6 +6,18 @@ Welcome to the **Finance App API** – your backend solution for managing and tr
 
 The Finance App API provides a solid foundation for building finance-related applications. It handles user authentication, transaction management, and reporting, making it easy to integrate with any frontend dashboard.
 
+IMPORTANT: the first version of this project has been coded in Node 16.20, so Prettier and ESLint configs follows this version. In case you need, here are the commands to install the specific versions.
+
+IMPORTANT!: this project will be updated as I learn more of the techs.
+
+
+```bash
+npm i eslint@8.46.0
+npm i husky@8.0.3
+npm i lint-staged@13.2.3
+
+```
+
 ## 🛠️ Technologies Used
 
 - **Node.js** – Fast, scalable server-side JavaScript runtime
