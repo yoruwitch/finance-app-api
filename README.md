@@ -48,7 +48,7 @@ npm install
 npm run dev
 ```
 
-### Config the dotev
+### Config the dotenv
 Create a `.env` file in the root directory and add your environment variables. Here’s an example:
 
 ```plaintext
