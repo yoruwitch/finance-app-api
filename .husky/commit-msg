@@ -1,4 +1,17 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-.git/hooks/commit-msg $1
+if ! npx --no -- commitlint --edit "$1"; then
+  echo
+  echo "⚠️ Invalid commit message!"
+  echo "Please use the Conventional Commits format:"
+  echo "<type>: <short description>"
+  echo
+  echo "Example:"
+  echo "  feat: add user login"
+  echo
+  echo "Common types:"
+  echo "  feat, fix, docs, style, refactor, test, chore"
+  echo
+  exit 1
+fi
