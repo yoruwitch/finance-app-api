@@ -6,7 +6,8 @@
     "type": "module",
     "scripts": {
         "test": "echo \"No tests specified yet\"",
-        "postinstall": "npx husky install"
+        "postinstall": "npx husky install",
+        "migrations": "node src/db/postgres/migrations/exec.js"
     },
     "keywords": [],
     "author": "",
