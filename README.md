@@ -52,11 +52,11 @@ npm run dev
 Create a `.env` file in the root directory and add your environment variables. Here’s an example:
 
 ```plaintext
-DB_USER=<your_database_user>
-DB_PASSWORD=<your_database_password>
-DB_HOST=<your_database_host>
-DB_PORT=<your_database_port>
-DB_NAME=<your_database_name>
+POSTGRES_USER=<your_postgres_user>
+POSTGRES_PASSWORD=<your_postgres_password>
+POSTGRES_HOST=<your_postgres_host>
+POSTGRES_PORT=<your_postgres_port>
+POSTGRES_DB=<your_postgres_db>
 ```
 
 The API will be available at `http://localhost:3000`.
