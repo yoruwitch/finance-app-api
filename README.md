@@ -18,13 +18,17 @@ npm i lint-staged@13.2.3
 
 ```
 
+## Architecture
+
+- This project is going to be built using Single Responsibility Principle and Repository Pattern.
+
 ## 🛠️ Technologies Used
 
 - **Node.js** – Fast, scalable server-side JavaScript runtime
 - **Prettier** – Code formatter for consistent style
 - **Husky** – Git hooks for code quality enforcement
 - **Docker** *(coming soon)* – Containerization for easy deployment
-- **PostgreSQL** *(coming soon)* – Reliable relational database
+- **PostgreSQL** *(ongoing)* – Reliable relational database
 
 ## ⚡ Getting Started
 
@@ -33,6 +37,7 @@ npm i lint-staged@13.2.3
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 - [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
 
 ### Installation
 
