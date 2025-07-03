@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 import { PostgresCreateUserRepository } from "../repositories/postgres/create-user.js";
 
-export class CreateuserUseCase {
+export class CreateUserUseCase {
     async execute(createUserParams) {
         // TODO: verificar se o email já está sendo usado
 
@@ -22,7 +22,7 @@ export class CreateuserUseCase {
         // chamar o repositório para salvar o usuário
         const postgresCreateUserRepository = new PostgresCreateUserRepository();
 
-        const createdUser = await postgresCreateUserRepository.createUser(user);
+        const createdUser = await postgresCreateUserRepository.execute(user);
 
         return createdUser;
     }
