@@ -20,3 +20,15 @@ export const internalServerError = () => {
         },
     };
 };
+
+export const ok = (body) => ({
+    statusCode: 200,
+    body,
+});
+
+export const notFound = (body) => {
+    return {
+        statusCode: 404,
+        body,
+    };
+};
