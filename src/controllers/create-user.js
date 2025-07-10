@@ -1,7 +1,17 @@
 import { CreateUserUseCase } from "../use-cases/create-user.js";
 import validator from "validator";
-import { badRequest, created, internalServerError } from "./helpers.js";
+import {
+    badRequest,
+    created,
+    internalServerError,
+} from "../controllers/helpers/http.js";
 import { EmailAlreadyInUseError } from "../errors/user.js";
+import {
+    checkIfEmailIsValid,
+    checkIfPasswordIsValid,
+    emailAlreadyInUseResponse,
+    invalidPasswordResponse,
+} from "../controllers/helpers/user.js";
 
 export class CreateUserController {
     async execute(httpRequest) {
@@ -23,20 +33,21 @@ export class CreateUserController {
             }
 
             // validando o email com o Validator(lib externa)
-            const emailIsValid = validator.isEmail(params.email);
+            const emailIsValid = checkIfEmailIsValid(params.email);
             if (!emailIsValid) {
-                return badRequest({
-                    message: "Email must follow the format: user@example.com",
-                });
+                return emailAlreadyInUseResponse();
             }
 
             // validando a senha
-            const passwordIsValid = validator.isStrongPassword(params.password);
+            const passwordIsValid = checkIfPasswordIsValid(params.password);
             if (!passwordIsValid) {
-                return badRequest({
-                    message:
-                        "Password must include at least 8 characters, one uppercase letter, one lowercase letter, one number, and one symbol.",
-                });
+                return invalidPasswordResponse();
+            }
+            const passwordIsNotValid = validator.isStrongPassword(
+                params.password,
+            );
+            if (!passwordIsNotValid) {
+                return invalidPasswordResponse();
             }
 
             // chamar o use case
