@@ -20,16 +20,14 @@ export const invalidIdResponse = () => {
     });
 };
 
-export const checkIfPasswordIsValid = () => {
-    return (password) =>
-        validator.isStrongPassword(password, {
-            minLength: 8,
-            minLowercase: 1,
-            minUppercase: 1,
-            minNumbers: 1,
-            minSymbols: 1,
-        });
-};
+export const checkIfPasswordIsValid = (password) =>
+    validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+    });
 
 export const checkIfEmailIsValid = (email) => validator.isEmail(email);
 
