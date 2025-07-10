@@ -3,7 +3,7 @@ import {
     notFound,
     internalServerError,
 } from "../controllers/helpers/http.js";
-import { GetUserByIdUseCase } from "../use-cases/get-user-by-id.js";
+import { GetUserByIdUseCase } from "../use-cases/index.js";
 import { checkIfIdIsValid, invalidIdResponse } from "./helpers/user.js";
 
 export class GetUserByIdController {
