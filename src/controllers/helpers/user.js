@@ -29,6 +29,12 @@ export const checkIfPasswordIsValid = (password) =>
         minSymbols: 1,
     });
 
+export const userNotFoundResponse = () => {
+    return badRequest({
+        message: "User not found.",
+    });
+};
+
 export const checkIfEmailIsValid = (email) => validator.isEmail(email);
 
 export const checkIfIdIsValid = (id) => validator.isUUID(id);
