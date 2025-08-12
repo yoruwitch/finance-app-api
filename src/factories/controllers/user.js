@@ -1,10 +1,4 @@
-import {
-    PostgresGetUserByIdRepository,
-    PostgresGetUserByEmailRepository,
-    PostgresCreateUserRepository,
-    PostgresUpdateUserRepository,
-    PostgresDeleteUserRepository,
-} from "../../repositories/postgres/index.js";
+import * as userRepository from "../../repositories/postgres/index.js";
 import {
     GetUserByIdUseCase,
     CreateUserUseCase,
@@ -19,7 +13,8 @@ import {
 } from "../../controllers/index.js";
 
 export const makeGetUserByIdController = () => {
-    const getUserByIdRepository = new PostgresGetUserByIdRepository();
+    const getUserByIdRepository =
+        new userRepository.PostgresGetUserByIdRepository();
 
     const getUserByIdUseCase = new GetUserByIdUseCase(getUserByIdRepository);
 
@@ -29,9 +24,11 @@ export const makeGetUserByIdController = () => {
 };
 
 export const makeCreateUserController = () => {
-    const getUserByEmailRepository = new PostgresGetUserByEmailRepository();
+    const getUserByEmailRepository =
+        new userRepository.PostgresGetUserByEmailRepository();
 
-    const createUserReposistory = new PostgresCreateUserRepository();
+    const createUserReposistory =
+        new userRepository.PostgresCreateUserRepository();
 
     const createUserUseCase = new CreateUserUseCase(
         getUserByEmailRepository,
@@ -44,8 +41,10 @@ export const makeCreateUserController = () => {
 };
 
 export const makeUpdateUserController = () => {
-    const getUserByEmailRepository = new PostgresGetUserByEmailRepository();
-    const updateUserRepository = new PostgresUpdateUserRepository();
+    const getUserByEmailRepository =
+        new userRepository.PostgresGetUserByEmailRepository();
+    const updateUserRepository =
+        new userRepository.PostgresUpdateUserRepository();
 
     const updateUserUseCase = new UpdateUserUseCase(
         updateUserRepository,
@@ -57,7 +56,8 @@ export const makeUpdateUserController = () => {
 };
 
 export const makeDeleteUserController = () => {
-    const deleteUserRepository = new PostgresDeleteUserRepository();
+    const deleteUserRepository =
+        new userRepository.PostgresDeleteUserRepository();
 
     const deleteUserUseCase = new DeleteUserByIdUseCase(deleteUserRepository);
 
