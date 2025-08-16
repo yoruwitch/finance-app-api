@@ -1,10 +1,10 @@
 import {
-    serverError,
+    internalServerError,
     badRequest,
     checkIfIdIsValid,
     invalidIdResponse,
     created,
-} from "../helpers";
+} from "../helpers/index.js";
 
 import validator from "validator";
 export class CreateTransactionController {
@@ -17,7 +17,6 @@ export class CreateTransactionController {
             const params = httpRequest.body;
             //  validar a transação
             const requiredFields = [
-                "id",
                 "user_id",
                 "name",
                 "date",
@@ -26,7 +25,10 @@ export class CreateTransactionController {
             ];
 
             for (const field of requiredFields) {
-                if (!params[field] || params[field].trim().length === 0) {
+                if (
+                    !params[field] ||
+                    params[field].toString().trim().length === 0
+                ) {
                     return badRequest({ message: `Missing param: ${field}` });
                 }
             }
@@ -80,7 +82,7 @@ export class CreateTransactionController {
             return created(transaction);
         } catch (error) {
             console.log(error);
-            return serverError(error);
+            return internalServerError(error);
         }
     }
 }
