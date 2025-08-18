@@ -6,6 +6,7 @@ import {
     emailAlreadyInUseResponse,
     invalidPasswordResponse,
     badRequest,
+    requiredFieldIsMissingResponse,
     created,
     internalServerError,
     validateRequiredFields,
@@ -31,9 +32,7 @@ export class CreateUserController {
             const { ok: requiredFieldsWereProvided, missingField } =
                 validateRequiredFields(params, requiredFields);
             if (!requiredFieldsWereProvided) {
-                return badRequest({
-                    message: `The field ${missingField} is required.`,
-                });
+                return requiredFieldIsMissingResponse(missingField);
             }
 
             // validando o email com o Validator(lib externa)
