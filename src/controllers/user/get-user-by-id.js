@@ -1,9 +1,10 @@
-import { ok, internalServerError } from "../helpers/http.js";
 import {
+    ok,
+    internalServerError,
     checkIfIdIsValid,
     invalidIdResponse,
     userNotFoundResponse,
-} from "../helpers/user.js";
+} from "../helpers/index.js";
 
 export class GetUserByIdController {
     constructor(getUserByIdUseCase) {
