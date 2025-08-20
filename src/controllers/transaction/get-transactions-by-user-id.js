@@ -3,7 +3,7 @@ import {
     checkIfIdIsValid,
     invalidIdResponse,
     requiredFieldIsMissingResponse,
-    UserNotFoundResponse,
+    userNotFoundResponse,
     internalServerError,
 } from "../helpers/index.js";
 
@@ -35,7 +35,7 @@ export class GetTransactionsByUserIdController {
             console.error(error);
 
             if (error instanceof UserNotFoundError) {
-                return UserNotFoundResponse();
+                return userNotFoundResponse();
             }
 
             return internalServerError();

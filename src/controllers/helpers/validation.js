@@ -10,6 +10,8 @@ export const invalidIdResponse = () => {
 };
 
 export const requiredFieldIsMissingResponse = (field) => {
+    console.log(field);
+
     return badRequest({
         message: `The field ${field} is required.`,
     });
